@@ -30,7 +30,7 @@ public class Beer extends MenuItem {
 	@Column(nullable = false)
 	private String beerName = super.getName();
 
-	@Column(nullable = false)
+	@Column//(nullable = false)
 	private Double beerCost = super.getCost();
 
 	@Column
