@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <a class="btn btn-success" href="/beers" role="button">Добавить кран</a>
                     <div>
-<#--                        <#include "parts/beersList.ftlh"/>-->
+                        <#include "parts/beersList.ftlh"/>
                     </div>
                 </div>
             </div>

@@ -19,11 +19,11 @@ public class BeerController {
 		this.beerService = beerService;
 	}
 
-
 	// Выводим список сортов пива
 	@GetMapping("/beers")
 	public String listBeers(Model model){
 		model.addAttribute("listBeers", this.beerService.listBeers());
+		log.info("вывели список кранов через контроллер.");
 		return "/beers";
 	}
 

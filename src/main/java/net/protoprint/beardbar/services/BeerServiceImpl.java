@@ -1,11 +1,9 @@
 package net.protoprint.beardbar.services;
 
 import lombok.extern.slf4j.Slf4j;
-import net.protoprint.beardbar.dao.BeerDao;
+import net.protoprint.beardbar.dao_repos.BeerDao;
 import net.protoprint.beardbar.model.Beer;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @Slf4j
@@ -18,9 +16,9 @@ public class BeerServiceImpl implements BeerService{
 	}
 
 	@Override
-	public void addBeer(Beer beers) {
-		beerDao.addBeer(beers);
-		log.info("Added beer: " + beers);
+	public void addBeer(Beer beer) {
+		beerDao.save(beer);
+		log.info("Added beer: " + beer);
 	}
 
 	@Override
@@ -39,7 +37,8 @@ public class BeerServiceImpl implements BeerService{
 	}
 
 	@Override
-	public List<Beer> listBeers() {
-		return null;
+	public Iterable<Beer> listBeers() {
+		log.info("Передали список кранов в сервис");
+		return beerDao.findAll();
 	}
 }

@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
-
 @Controller
 @Slf4j
 public class MainController {
@@ -23,9 +21,9 @@ public class MainController {
 	@GetMapping("/")
 	public String mainWindow(Model model) {
 		//Добавляем на главную страницу список кранов
-		List<Beer> beers = beerService.listBeers();
+		Iterable<Beer> beers = beerService.listBeers();
 		model.addAttribute("beers", beers);
-		log.info("Вывели список кранов: " + model.toString());
+		log.info("Вывели список кранов: " + beers.toString());
 //
 //		//Добавляем на главную страницу список снэков
 //		Iterable<Snacks> snacks = snacksRepo.findAll();

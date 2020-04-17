@@ -1,23 +1,21 @@
 package net.protoprint.beardbar.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@EqualsAndHashCode(callSuper = true)
+
+//Lombok annotations
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "Beers")
-public class Beer extends MenuItem {
+@AllArgsConstructor
 
-	public Beer(Integer tapNumber, Double beerBalance) {
-		super("",0.00,false);
-		this.tapNumber = tapNumber;
-		this.beerBalance = beerBalance;
-	}
+// JPA annotations
+@Entity
+@Table(name = "Beer")
+public class Beer{
 
 	@Id
 	@Column(name = "ID")
@@ -28,13 +26,13 @@ public class Beer extends MenuItem {
 	private Integer tapNumber = 1;
 
 	@Column(nullable = false)
-	private String beerName = super.getName();
+	private String beerName;
 
 	@Column//(nullable = false)
-	private Double beerCost = super.getCost();
+	private Double beerCost;
 
 	@Column
-	private Boolean beerStopped = super.getStopped();
+	private Boolean beerStopped = false;
 
 	@Column
 	private Double beerBalance;
