@@ -17,6 +17,7 @@ import javax.persistence.*;
 @Table(name = "Beer")
 public class Beer{
 
+
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +37,7 @@ public class Beer{
 
 	@Column
 	private Double beerBalance;
+
+
 
 }

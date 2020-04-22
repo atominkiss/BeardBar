@@ -2,15 +2,19 @@ package net.protoprint.beardbar.services;
 
 import net.protoprint.beardbar.model.Beer;
 
+import java.util.Optional;
+
+
 public interface BeerService {
 
-	void addBeer(Beer beers);
+	void addBeer(Beer beer);
 
-	void updateBeer(Beer beers);
+	void updateBeer(Beer beer);
 
-	void deleteBeer(int id);
+	void deleteBeer(Beer beer);
 
-	Beer getBeerById(int id);
+
+	Optional<Beer> getBeerById(Long id);
 
 	Iterable<Beer> listBeers();
 }

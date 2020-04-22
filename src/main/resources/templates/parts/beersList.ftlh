@@ -12,7 +12,8 @@
                         ${beer.beerCost} руб./0.5 литра <BR>
                         ${beer.beerBalance} - в кеге <BR>
                         ${beer.beerStopped?string('НА СТОПЕ!', '')}</p>
-                    <a href="/beerEdit/${beer.tapNumber}" class="btn btn-primary">Редактировать</a>
+                    <a href="/beerEdit/${beer.id}" class="btn btn-primary">Редактировать</a>
+<#--                    <p href="/beerDel" class="btn btn-primary">Удалить</p>-->
                 </div>
             </div>
         </#list>

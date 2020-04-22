@@ -23,7 +23,7 @@ public class MainController {
 		//Добавляем на главную страницу список кранов
 		Iterable<Beer> beers = beerService.listBeers();
 		model.addAttribute("beers", beers);
-		log.info("Вывели список кранов: " + beers.toString());
+		log.info("Вывели список кранов через Main Controller: " + beers.toString());
 //
 //		//Добавляем на главную страницу список снэков
 //		Iterable<Snacks> snacks = snacksRepo.findAll();
