@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Slf4j
-public class BeerDaoImpl {
+public class BeerRepoImpl {
 
 }

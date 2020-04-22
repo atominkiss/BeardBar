@@ -31,13 +31,15 @@
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-2">Добавить кран</button>
-<#--                <#include "parts/href_to_mainWindow.ftlh"/>-->
+                <#--                <#include "parts/href_to_mainWindow.ftlh"/>-->
             </div>
         </div>
     </form>
 
-    <div>Список кранов</div>
+    <div>Список кранов
 
-<#--    <#include "parts/beersList.ftlh"/>-->
-
+        <div>
+            <#include "parts/beersList.ftlh"/>
+        </div>
+    </div>
 </@c.page>

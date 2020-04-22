@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-
 //Lombok annotations
 @Data
 @NoArgsConstructor
@@ -16,7 +15,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Beer")
 public class Beer{
-
 
 	@Id
 	@Column(name = "ID")
@@ -33,11 +31,9 @@ public class Beer{
 	private Double beerCost;
 
 	@Column
-	private Boolean beerStopped = false;
+	private Boolean beerStopped;
 
 	@Column
 	private Double beerBalance;
-
-
 
 }

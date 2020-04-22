@@ -5,7 +5,6 @@ import net.protoprint.beardbar.model.Beer;
 import net.protoprint.beardbar.services.BeerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -37,11 +36,12 @@ public class BeerController {
 		return "redirect:/beers";
 	}
 
+	// выводим заполненную форму для редактирования конкретного пива (крана)
 	@GetMapping ("/beerEdit/{beer}")
 	public String beerEdit(
 			@PathVariable Beer beer,
 			Model model
-			)
+	)
 	{
 		model.addAttribute("beer", beer);
 		log.info("Редактируем пиво: " + beer);
@@ -49,29 +49,20 @@ public class BeerController {
 	}
 
 
-		@PostMapping("/beerEdit{beer}")
+	@PostMapping("/beerEdit/{beer}")
 	public String updateBeer(
 			@PathVariable Beer beer,
-			@RequestParam("tapNumber") String tupNumber,
+			@RequestParam("tapNumber") Integer tapNumber,
 			@RequestParam ("beerName") String beerName,
 			@RequestParam ("beerCost") Double beerCost,
 			@RequestParam ("beerBalance") Double beerBalance,
-			Boolean beerStopped,
-			Model model
+			//required = false - потому что с формы возвращается null, если кран не на стопе. Соответственно после этого будет NullPointerException.Замену null на false делаем в методе BeerServiceImpl
+			@RequestParam (name = "beerStopped", required = false) Boolean  beerStopped
 	){
 
+
+		beerService.updateBeer(beer, tapNumber, beerName, beerCost, beerBalance, beerStopped);
 		log.info("Отредактировали пиво: " + beer);
-		if (!StringUtils.isEmpty(beerName) & !StringUtils.isEmpty(beerCost) & !StringUtils.isEmpty(beerBalance)){
-			beer.setBeerName(beerName);
-			beer.setBeerCost(beerCost);
-			beer.setBeerBalance(beerBalance);
-			if (beerStopped==null){
-				beer.setBeerStopped(false);
-			} else {
-				beer.setBeerStopped(true);
-			}
-		}
-		beerService.updateBeer(beer);
 		return "redirect:/beers";
 	}
 }

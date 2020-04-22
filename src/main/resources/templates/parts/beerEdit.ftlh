@@ -2,9 +2,17 @@
 
 <@c.page>
 
-    <form action="/beerEdit/${beer}" method="post">
+<#--    <form action="/beerEdit/${beer}" method="post">-->
+    <form method="post">
         <div class="form-row align-items-center m-1 p-1">
-            <input type="hidden" name="tapNumber" value="<#if beer??>${beer.tapNumber}</#if>"/>
+            <div class="col-auto">
+                <label class="sr-only" for="id">id</label>
+                <input type="text" name="id" value="<#if beer??>${beer.id}</#if>" class="form-control mb-2" id="id" placeholder="ID"/>
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="tapNumber">tapNumber</label>
+                <input type="text" name="tapNumber" value="<#if beer??>${beer.tapNumber}</#if>" class="form-control mb-2" id="tapNumber" placeholder="Номер крана"/>
+            </div>
             <div class="col-auto">
                 <label class="sr-only" for="beerName">beerName</label>
                 <input type="text" name="beerName" value="<#if beer??>${beer.beerName}</#if>" class="form-control mb-2" id="beerName" placeholder="Наименование пива"/>

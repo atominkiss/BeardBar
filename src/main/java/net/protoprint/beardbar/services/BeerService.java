@@ -9,7 +9,7 @@ public interface BeerService {
 
 	void addBeer(Beer beer);
 
-	void updateBeer(Beer beer);
+	void updateBeer(Beer beer, Integer tapNumber, String beerName, Double beerCost, Double beerBalance, Boolean beerStopped);
 
 	void deleteBeer(Beer beer);
 
