@@ -36,7 +36,7 @@ public class BeerController {
 		return "redirect:/beers";
 	}
 
-	// выводим заполненную форму для редактирования конкретного пива (крана)
+	// выводим заполненную форму редактирования конкретного пива (крана)
 	@GetMapping ("/beerEdit/{beer}")
 	public String beerEdit(
 			@PathVariable Beer beer,
@@ -49,6 +49,7 @@ public class BeerController {
 	}
 
 
+	//Сохраняем отредактированные данные пива.
 	@PostMapping("/beerEdit/{beer}")
 	public String updateBeer(
 			@PathVariable Beer beer,
@@ -63,7 +64,10 @@ public class BeerController {
 
 		beerService.updateBeer(beer, tapNumber, beerName, beerCost, beerBalance, beerStopped);
 		log.info("Отредактировали пиво: " + beer);
-		return "redirect:/beers";
+		return "redirect:/";
 	}
+
+	//TODO: "Удаление крана - нужно ли?"
+
 }
 
