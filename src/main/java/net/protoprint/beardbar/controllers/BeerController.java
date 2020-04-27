@@ -30,7 +30,6 @@ public class BeerController {
 	public String addBeer(@ModelAttribute("beers") Beer beer){
 		if (beer.getId() == 0){
 			// TODO: Обработка ошибок, когда ввели в числовое поле строку. Например в поле 'номер крана' название пива;
-			beer.setBill();
 			this.beerService.addBeer(beer);
 			log.info("Добавили пиво: " + beer);
 		}

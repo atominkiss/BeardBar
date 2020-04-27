@@ -1,14 +1,16 @@
 package net.protoprint.beardbar.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 //Lombok annotations
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 
 // JPA annotations
 @Entity
@@ -20,7 +22,7 @@ public class Beer{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(unique = true,nullable = false)
+	@Column(nullable = false)
 	@NotBlank(message = "Введите номер крана")
 	private Integer tapNumber = 1;
 
@@ -38,18 +40,9 @@ public class Beer{
 	@Column
 	private Double beerBalance;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "bill_id")
-	private Bill bill;
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "bill_id")
+//	private Bill bill ;
 
-	public Beer() {
-	}
 
-	public Beer(@NotBlank(message = "Введите номер крана") Integer tapNumber, @NotBlank(message = "Введите наименование пива") String beerName, @NotBlank(message = "Стоимость не может быть равна 0") Double beerCost, Boolean beerStopped, Double beerBalance) {
-		this.tapNumber = tapNumber;
-		this.beerName = beerName;
-		this.beerCost = beerCost;
-		this.beerStopped = beerStopped;
-		this.beerBalance = beerBalance;
-	}
 }
